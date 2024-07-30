@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Cadastrar Fotovoltaico</title>
+        <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous"> 
+                    </head>
+                    <body>
+                        <h1>Formulario Fotovoltaico</h1>
+                        
+                        <form th:action="@{/formFV}" th:object="${fotovoltaicos}" method="post">
+                            <p>Fabricante: <input type="text" th:field="${fotovoltaicos.fabricante}"/></p>
+                            <p>Quantidade de Placas: <input type="text" th:field="${fotovoltaicos.qtdPlacas}"/></p>
+                            <p>Potência Placas: <input type="text" th:field="${fotovoltaicos.potPlacas}"/></p>
+                            <p>Potência Gerador: <input type="text" th:field="${fotovoltaicos.potGerador}"/></p>
+                            <p>Potência Inversor: <input type="text" th:field="${fotovoltaicos.potInversor}"/></p>
+                            <p>Tipo de Telhado: <input type="text" th:field="${fotovoltaicos.tipoTelhado}"/></p>
+                            <p>Concessionária: <input type="text" th:field="${fotovoltaicos.concessionaria}"/></p>
+                            <p><input type="submit" value="Cadastrar" class="btn btn-info"/></p>
+                        </form>
+                        <a th:href="@{/index}"><button type="button" class="btn btn-info">Voltar</button></a>
+                    </body>
+</html>

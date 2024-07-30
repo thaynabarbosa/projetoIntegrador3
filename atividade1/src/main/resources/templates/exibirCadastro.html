@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Detalhes Cliente</title>
+        <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous"> 
+                    </head>
+                    <body>
+                        <div class="container">
+                            <div class="row">
+                                <div  class="col-sm-8">
+                                    <h1>Dados Cliente</h1> 
+                                    <p>ID: <b><span th:text="${registroCliente.id}"/></b></p>
+                                    <p>Nome: <b><span th:text="${registroCliente.nome}" /></b></p> 
+                                    <p>Endereço: <b><span th:text="${registroCliente.endereco}" /></b></p> 
+                                    <p>Bairro: <b><span th:text="${registroCliente.bairro}" /></b></p> 
+                                    <p>Cidade: <b><span th:text="${registroCliente.cidade}" /></b></p>
+                                    <p>UF: <b><span th:text="${registroCliente.uf}" /></b></p>  
+                                    <p>CEP: <b><span th:text="${registroCliente.cep}" /></b></p>
+                                    <p>Email: <b><span th:text="${registroCliente.email}" /></b></p>
+                                    <p>Telefone: <b><span th:text="${registroCliente.telefone}" /></b></p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-8 mt-5">
+                                    <h1>Sistema Fotovoltaico</h1>
+
+                                    <div class="row">
+                                        <div  class="col-sm-8">
+                                            <p>ID: <b><span th:text="${registroFotovoltaico.id}"/></b></p>
+                                            <p>Fabricante: <b><span th:text="${registroFotovoltaico.fabricante}" /></b></p> 
+                                            <p>Quantidade de Placas: <b><span th:text="${registroFotovoltaico.qtdPlacas}" /></b></p> 
+                                            <p>Potência das Placas: <b><span th:text="${registroFotovoltaico.potPlacas}" /></b></p>
+                                            <p>Potência do Gerador: <b><span th:text="${registroFotovoltaico.potGerador}" /></b></p>
+                                            <p>Potência do Inversor: <b><span th:text="${registroFotovoltaico.potInversor}" /></b></p> 
+                                            <p>Tipo de Telhado: <b><span th:text="${registroFotovoltaico.tipoTelhado}" /></b></p>
+                                            <p>Concessionária de energia: <b><span th:text="${registroFotovoltaico.concessionaria}" /></b></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div>
+                                            <a th:href="@{/index}"><button type="button" class="btn btn-info">Voltar</button></a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </body>
+</html>
