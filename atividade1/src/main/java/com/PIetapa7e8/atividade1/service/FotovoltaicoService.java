@@ -32,7 +32,7 @@ public class FotovoltaicoService {
     }
     
     //exclui todos os fotovoltaicos relacionadas ao cliente no banco de dados
-    public void excluirTodasAnalises(Integer id){
+    public void excluirTodosFotovoltaicos(Integer id){
       for(Fotovoltaico fotovoltaico : listarTodos(id)){
           excluirFotovoltaico(fotovoltaico.getId());
       }
