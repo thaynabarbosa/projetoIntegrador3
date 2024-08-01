@@ -1,5 +1,6 @@
 package com.PIetapa7e8.atividade1.service;
 
+import com.PIetapa7e8.atividade1.model.Cliente;
 import com.PIetapa7e8.atividade1.model.Fotovoltaico;
 import com.PIetapa7e8.atividade1.repository.FotovoltaicoRepository;
 import java.util.List;
@@ -19,6 +20,10 @@ public class FotovoltaicoService {
     
     public List<Fotovoltaico> listarTodos(Integer id){
        return fotovoltaicoRepository.findByClienteId(id);
+    }
+    
+    public List<Fotovoltaico> listar(){
+    return fotovoltaicoRepository.findAll();
     }
     
     public Fotovoltaico buscarPorId(Integer id){
