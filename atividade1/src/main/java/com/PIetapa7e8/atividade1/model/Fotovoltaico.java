@@ -1,8 +1,26 @@
 package com.PIetapa7e8.atividade1.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name="Fotovoltaico")
 public class Fotovoltaico {
     
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
     private String fabricante;
     private int qtdPlacas;
     private float potPlacas;
@@ -11,35 +29,7 @@ public class Fotovoltaico {
     private String tipoTelhado;
     private String concessionaria;
 
-    public Fotovoltaico() {
-    }
-
-    public Fotovoltaico(int id, String fabricante, int qtdPlacas, float potPlacas, float potGerador, float potInversor, String tipoTelhado, String concessionaria) {
-        this.id = id;
-        this.fabricante = fabricante;
-        this.qtdPlacas = qtdPlacas;
-        this.potPlacas = potPlacas;
-        this.potGerador = potGerador;
-        this.potInversor = potInversor;
-        this.tipoTelhado = tipoTelhado;
-        this.concessionaria = concessionaria;
-    }
-    
-    //Getter and Setters
-    public int getId() {return id;}
-    public void setId(int id) {this.id = id;}
-    public String getFabricante() {return fabricante;}
-    public void setFabricante(String fabricante) {this.fabricante = fabricante;}
-    public int getQtdPlacas() {return qtdPlacas;}
-    public void setQtdPlacas(int qtdPlacas) {this.qtdPlacas = qtdPlacas;}
-    public float getPotPlacas() {return potPlacas;}
-    public void setPotPlacas(float potPlacas) {this.potPlacas = potPlacas;}
-    public float getPotGerador() {return potGerador;}
-    public void setPotGerador(float potGerador) {this.potGerador = potGerador;}
-    public float getPotInversor() {return potInversor;}
-    public void setPotInversor(float potInversor) {this.potInversor = potInversor;}
-    public String getTipoTelhado() {return tipoTelhado;}
-    public void setTipoTelhado(String telhado) {this.tipoTelhado = telhado;}
-    public String getConcessionaria() {return concessionaria;}
-    public void setConcessionaria(String concessionaria) {this.concessionaria = concessionaria;}
+   @ManyToOne
+	@JoinColumn(name="id_cliente")
+	private Cliente clientes;
 }
