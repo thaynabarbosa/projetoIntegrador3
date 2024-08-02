@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface FotovoltaicoRepository extends JpaRepository <Fotovoltaico,Integer> {
-    List<Fotovoltaico> findByClienteId(Integer clienteId);
+    List<Fotovoltaico> findByClientesId(Integer clienteId);
 }

@@ -84,14 +84,59 @@ public class ClienteController {
         fotovoltaicoEncontrada = fotovoltaicoservice.listarTodos(idCliente);
 
         model.addAttribute("registroCliente", registroEncontrado);
-        model.addAttribute("fotovoltaicos", new Fotovoltaico());
+        //model.addAttribute("fotovoltaicos", new Fotovoltaico());
         model.addAttribute("registroFotovoltaico", fotovoltaicoEncontrada);
         return "exibirCadastro";
     }
     
     @GetMapping("/listaFV")
     public String listaFotovoltaico(Model model) {
-        model.addAttribute("lista", fotovoltaicoservice.listar());
+        model.addAttribute("listafv", fotovoltaicoservice.listar());
         return "listaFotovoltaico";
+    }
+    
+    
+    //Alterar os dados dos filmes
+    @GetMapping("/alterar")
+    public String alterarCliente(Model model, @RequestParam String id) {
+        Integer idCliente = Integer.parseInt(id);
+        Cliente clienteencontrado = clienteservice.buscarPorId(idCliente);
+        model.addAttribute("cliente", clienteencontrado);
+        return "alterarCliente";
+    }
+
+    //Exclui o filme do banco de dados
+    @GetMapping("/excluir")
+    public String deletaCliente(Model model, @RequestParam String id) {
+        Integer idCliente = Integer.parseInt(id);
+        fotovoltaicoservice.excluirTodosFotovoltaicos(idCliente);
+        clienteservice.excluir(idCliente);
+        return "redirect:/lista";
+    }
+    
+    //Exclui o fotovoltaico do banco de dados
+    @GetMapping("/excluirFotovoltaico")
+    public String excluiFotovoltaico(Model model, @RequestParam String id) {
+        Integer idFotovoltaico = Integer.parseInt(id);
+        fotovoltaicoservice.excluirFotovoltaico(idFotovoltaico);
+        return "redirect:";
+    }
+
+    //Alterar os dados da Analise
+    @GetMapping("/alterarFotovoltaico")
+    public String alterarFotovoltaico(Model model, @RequestParam String id, @ModelAttribute Cliente cliente, @ModelAttribute Fotovoltaico fotovoltaico) {
+        fotovoltaico.setClientes(cliente);
+        Integer idFotovoltaico = Integer.parseInt(id);
+        Fotovoltaico fotovoltaicoencontrado = fotovoltaicoservice.buscarPorId(idFotovoltaico);
+        model.addAttribute("fotovoltaicos", fotovoltaicoencontrado);
+
+        return "alterarFotovoltaico";
+    }
+
+    @PostMapping("/alterar-fotovoltaico")
+    public String alterarFotovoltaico(@ModelAttribute Cliente cliente, @ModelAttribute Fotovoltaico fotovoltaico, Model model) {
+        fotovoltaicoservice.atualizar(fotovoltaico.getId(), fotovoltaico);
+        model.addAttribute("fotovoltaicos", fotovoltaico);
+       return ("redirect:/"); 
     }
 }

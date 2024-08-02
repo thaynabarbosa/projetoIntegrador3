@@ -41,7 +41,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                             <td th:text="${clientes.email}"></td>
                                             <td th:text="${clientes.telefone}"></td>
                                             <td><a th:href="@{'/exibir?id=' + ${clientes.id}}">Detalhes</a></td>
-                                            <td><a th:href="@{/formularioFv}">Cadastrar FV</a></td>
+                                            <td><a th:href="@{'/alterar?id=' + ${clientes.id}}">Alterar</a></td>
+                                            <td><a th:href="@{'/excluir?id=' + ${clientes.id}}">Excluir</a></td>
+                                            <td><a th:href="@{'/formularioFv?id=' + ${clientes.id}}">Cadastrar FV</a></td>
                                         </tr>
 
                                     </tbody>

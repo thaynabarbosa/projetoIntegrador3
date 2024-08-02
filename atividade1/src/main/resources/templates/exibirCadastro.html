@@ -33,20 +33,27 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 
                                     <div class="row">
                                         <div  class="col-sm-8">
-                                            <p>ID: <b><span th:text="${registroFotovoltaico.id}"/></b></p>
-                                            <p>Fabricante: <b><span th:text="${registroFotovoltaico.fabricante}" /></b></p> 
-                                            <p>Quantidade de Placas: <b><span th:text="${registroFotovoltaico.qtdPlacas}" /></b></p> 
-                                            <p>Potência das Placas: <b><span th:text="${registroFotovoltaico.potPlacas}" /></b></p>
-                                            <p>Potência do Gerador: <b><span th:text="${registroFotovoltaico.potGerador}" /></b></p>
-                                            <p>Potência do Inversor: <b><span th:text="${registroFotovoltaico.potInversor}" /></b></p> 
-                                            <p>Tipo de Telhado: <b><span th:text="${registroFotovoltaico.tipoTelhado}" /></b></p>
-                                            <p>Concessionária de energia: <b><span th:text="${registroFotovoltaico.concessionaria}" /></b></p>
+                                            <ul>
+                                            <li th:each="fv : ${registroFotovoltaico}">    
+                                                <p>ID: <b><span th:text="${fv.id}"/></b></p>
+                                                <p>Fabricante: <b><span th:text="${fv.fabricante}" /></b></p> 
+                                                <p>Quantidade de Placas: <b><span th:text="${fv.qtdPlacas}" /></b></p> 
+                                                <p>Potência das Placas: <b><span th:text="${fv.potPlacas}" /></b></p>
+                                                <p>Potência do Gerador: <b><span th:text="${fv.potGerador}" /></b></p>
+                                                <p>Potência do Inversor: <b><span th:text="${fv.potInversor}" /></b></p> 
+                                                <p>Tipo de Telhado: <b><span th:text="${fv.tipoTelhado}" /></b></p>
+                                                <p>Concessionária de energia: <b><span th:text="${fv.concessionaria}" /></b></p>
+                                                <a th:href="@{'/alterarFotovoltaico?id=' + ${fv.id}}">Alterar</a>
+                                                <a th:href="@{'/excluirFotovoltaico?id=' + ${fv.id}}">Excluir</a>
+                                            </li>
+                                            </ul>
                                         </div>
                                     </div>
 
                                     <div class="row">
                                         <div>
-                                            <a th:href="@{/index}"><button type="button" class="btn btn-info">Voltar</button></a>
+                                            <a th:href="@{/index}"><button type="button" class="btn btn-info">Inicio</button></a>
+                                            <a th:href="@{/lista}"><button type="button" class="btn btn-info">Voltar</button></a>
                                         </div>
                                     </div>
 

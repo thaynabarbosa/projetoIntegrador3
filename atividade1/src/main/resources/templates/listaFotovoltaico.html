@@ -23,7 +23,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr th:each="fotovoltaicos : ${listaFV}">
+                                        <tr th:each="fotovoltaicos : ${listafv}">
                                             <td th:text="${fotovoltaicos.id}"></td>
                                             <td th:text="${fotovoltaicos.fabricante}"></td>
                                             <td th:text="${fotovoltaicos.qtdPlacas}"></td>
@@ -32,10 +32,12 @@
                                             <td th:text="${fotovoltaicos.potInversor}"></td>
                                             <td th:text="${fotovoltaicos.tipoTelhado}"></td>
                                             <td th:text="${fotovoltaicos.concessionaria}"></td>
+                                            <td><a th:href="@{'/alterarFotovoltaico?id=' + ${fotovoltaicos.id}}">Alterar</a><td>
+                                            <td><a th:href="@{'/excluirFotovoltaico?id=' + ${fotovoltaicos.id}}">Excluir</a><td>
                                         </tr>
                                     </tbody>
                                 </table>
-         <a th:href="@{/index}"><button type="button" class="btn btn-info">Voltar</button></a>
+         <a th:href="@{/index}"><button type="button" class="btn btn-info">Inicio</button></a>
     </body>
     </div>
 </html>

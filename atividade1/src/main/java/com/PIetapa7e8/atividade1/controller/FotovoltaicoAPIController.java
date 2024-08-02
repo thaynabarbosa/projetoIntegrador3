@@ -40,6 +40,13 @@ public class FotovoltaicoAPIController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
     
+    //Listar
+    @GetMapping("/listar")
+    public ResponseEntity<List> listarFotovoltaico(){
+        List<Fotovoltaico> fotovoltaicos = fotovoltaicoService.listar();
+        return new ResponseEntity<>(fotovoltaicos,HttpStatus.OK);
+    }
+    
     @DeleteMapping("/excluirFotovoltaicoPorCliente/{id}")
     public ResponseEntity<?> excluirFotovoltaicoPorCliente(@PathVariable Integer idCliente){
         fotovoltaicoService.excluirTodosFotovoltaicos(idCliente);
